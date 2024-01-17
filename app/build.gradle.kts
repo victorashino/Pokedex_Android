@@ -47,4 +47,16 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+
+    // Retrofit GSON
+    val okHttpVersion = "4.9.1"
+    val retrofitVersion = "2.9.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.squareup.okhttp3:okhttp:$okHttpVersion")
+    implementation("com.squareup.okhttp3:logging-interceptor:$okHttpVersion")
+    implementation("com.google.code.gson:gson:2.10.1")
 }

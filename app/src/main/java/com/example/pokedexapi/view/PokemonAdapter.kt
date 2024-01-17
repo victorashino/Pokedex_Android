@@ -1,17 +1,17 @@
 package com.example.pokedexapi.view
 
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pokedexapi.R
 import com.example.pokedexapi.domain.Pokemon
 
 class PokemonAdapter(
-    private val items: List<Pokemon>
+    private val items: List<Pokemon?>
 ) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,22 +29,25 @@ class PokemonAdapter(
         holder.bindView(item)
     }
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindView(item: Pokemon) = with(itemView) {
+        fun bindView(item: Pokemon?) = with(itemView) {
             val imagePokemon = findViewById<ImageView>(R.id.image_pokemon)
             val textNumber = findViewById<TextView>(R.id.text_number)
             val textName = findViewById<TextView>(R.id.text_name)
             val textType1 = findViewById<TextView>(R.id.text_type_1)
             val textType2 = findViewById<TextView>(R.id.text_type_2)
 
-            textNumber.text = "N° ${item.formattedNumber}"
-            textName.text = item.name
-            textType1.text = item.types[0].name
+            item?.let {
+                Glide.with(itemView.context).load(it.imageUrl).into(imagePokemon)
+                textNumber.text = "N° ${item.formattedNumber}"
+                textName.text = item.name.capitalize()
+                textType1.text = item.types[0].name.capitalize()
 
-            if (item.types.size > 1) {
-                textType2.visibility = View.VISIBLE
-                textType2.text = item.types[1].name
-            } else {
-                textType2.visibility = View.GONE
+                if (item.types.size > 1) {
+                    textType2.visibility = View.VISIBLE
+                    textType2.text = item.types[1].name.capitalize()
+                } else {
+                    textType2.visibility = View.GONE
+                }
             }
         }
     }
