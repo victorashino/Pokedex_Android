@@ -1,10 +1,13 @@
 package com.example.pokedexapi.view
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokedexapi.R
@@ -12,7 +15,7 @@ import com.example.pokedexapi.domain.Pokemon
 
 class PokemonAdapter(
     private val items: List<Pokemon?>
-) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+) : ListAdapter<Pokemon, PokemonAdapter.ViewHolder>(PokemonAdapter) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
@@ -28,6 +31,20 @@ class PokemonAdapter(
         val item = items[position]
         holder.bindView(item)
     }
+
+    companion object : DiffUtil.ItemCallback<Pokemon>() {
+        override fun areItemsTheSame(oldItem: Pokemon, newItem: Pokemon): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areContentsTheSame(oldItem: Pokemon, newItem: Pokemon): Boolean {
+            return oldItem.name == newItem.name &&
+                    oldItem.number == newItem.number &&
+                    oldItem.imageUrl == newItem.imageUrl
+        }
+
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindView(item: Pokemon?) = with(itemView) {
             val imagePokemon = findViewById<ImageView>(R.id.image_pokemon)
