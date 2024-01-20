@@ -3,7 +3,7 @@ Projeto escolhido para prática de chamada a API
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
-<img src="/result/pokedex_1.png" width="200">
+<img src="/result/pokedex_1.png" width="280">
 
 ## Tecnologias
 * * Kotlin
