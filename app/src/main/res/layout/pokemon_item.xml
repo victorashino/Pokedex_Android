@@ -2,87 +2,112 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginTop="16dp">
+    android:layout_width="180dp"
+    android:layout_height="180dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginTop="16dp"
+    android:backgroundTint="@color/white"
+    android:elevation="64dp"
+    app:cardCornerRadius="32dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginVertical="8dp">
-
-        <ImageView
-            android:id="@+id/image_pokemon"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="8dp"
-            android:contentDescription="Pokemon Image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:textColor="#919191"
-            android:textSize="14sp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="4dp"
+            tools:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.589"
+            tools:text="#006" />
+
+        <ImageView
+            android:id="@+id/image_pokemon"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_marginHorizontal="8dp"
+            android:contentDescription="Pokemon Image"
+            app:layout_constraintBottom_toTopOf="@id/text_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_pokemon"
-            tools:text="N° 001" />
+            tools:src="@drawable/gif" />
 
         <TextView
             android:id="@+id/text_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:textColor="#313131"
-            android:textSize="24sp"
+            android:layout_marginBottom="8dp"
+            tools:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/linear_type"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_number"
-            tools:text="Charmander" />
+            tools:text="Charizard" />
 
         <LinearLayout
+            android:id="@+id/linear_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_name">
+            app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:id="@+id/text_type_1"
-                android:layout_width="100dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_type1"
+                android:layout_width="64dp"
                 android:layout_height="wrap_content"
-                android:background="#a4acaf"
-                android:gravity="center_horizontal"
-                android:padding="2dp"
-                android:textColor="#212121"
-                android:textSize="14sp"
+                android:backgroundTint="@color/black"
+                app:cardCornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_name"
-                tools:text="Type" />
+                app:layout_constraintTop_toBottomOf="@id/text_name">
 
-            <TextView
-                android:id="@+id/text_type_2"
-                android:layout_width="100dp"
+                <TextView
+                    android:id="@+id/text_type_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:text="Type" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_type2"
+                android:layout_width="64dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:background="#a4acaf"
-                android:gravity="center_horizontal"
-                android:padding="2dp"
-                android:textColor="#212121"
-                android:textSize="14sp"
+                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/black"
+                app:cardCornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_name"
-                tools:text="Type" />
+                app:layout_constraintTop_toBottomOf="@id/text_name">
+
+                <TextView
+                    android:id="@+id/text_type_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="2dp"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:text="Type" />
+
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

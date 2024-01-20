@@ -52,6 +52,9 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
 
+    // Gif animation
+    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.23")
+
     // Retrofit GSON
     val okHttpVersion = "4.9.1"
     val retrofitVersion = "2.9.0"
