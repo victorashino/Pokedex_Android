@@ -4,14 +4,11 @@ import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedexapi.databinding.ActivityMainBinding
 import com.example.pokedexapi.domain.Pokemon
-import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
 

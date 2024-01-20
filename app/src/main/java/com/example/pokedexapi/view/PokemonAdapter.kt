@@ -1,7 +1,5 @@
 package com.example.pokedexapi.view
 
-import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokedexapi.R
 import com.example.pokedexapi.domain.Pokemon
-import com.example.pokedexapi.domain.PokemonType
 
 class PokemonAdapter(
     private val items: List<Pokemon?>
